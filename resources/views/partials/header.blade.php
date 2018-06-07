@@ -15,15 +15,35 @@
 		<script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>
 		<!-- Fichiers CSS -->
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome-all.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/styles.css') }}">
-
 	</head>
 	<body>
-        <!-- Top Of Navbar -->
-		<nav class="navbar navbar-expand-md navbar-dark bgBlue pSticky py-1">
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto bgYellow">
+<!-- 	<nav class="navbar navbar-expand-lg navbar-dark bgBlue pSticky py-1"> -->
+		<nav class="navbar navbar-expand-lg navbar-dark bgBlue">
+		<div class="container">
+		  <a class="navbar-brand" href="{{URL::to('/')}}"><img src="{{ asset('assets/img/logo.png') }}" alt="Logo de l'entreprise" title="Logo de l'entreprise"></a>
 
+<div class="row">
+	<div class="col-12 py-3">
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item{{ (route::currentRouteName() == 'accueil') ? ' active': ''}}">
+		        <a class="nav-link" href="{{URL::to('/')}}">Accueil <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item{{ (route::currentRouteName() == 'boutiquess') ? ' active': ''}}">
+		        <a class="nav-link" href="#">Boutiques</a>
+		      </li>
+		      <li class="nav-item{{ (route::currentRouteName() == 'produits') ? ' active': ''}}">
+		        <a class="nav-link" href="#">Produits</a>
+		      </li>
+		      <li class="nav-item{{ (route::currentRouteName() == 'panier') ? ' active': ''}}">
+		        <a class="nav-link" href="#">Panier</a>
+		      </li>		      
+		    </ul>  
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -38,7 +58,7 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        	<a class="dropdown-item" href="{{ route('profil') }}">Profil</a>
+                        	<a class="dropdown-item" href="{{ route('utilisateur') }}">Profil</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -51,59 +71,31 @@
                         </div>
                     </li>
                 @endguest
-
-
-					<li class="nav-item p-0">
-						<a class="nav-link" href="#">Mon Panier</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<!-- Blue navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark bgBlue">
-		<div class="container">
-		  <a class="navbar-brand" href="{{URL::to('/')}}"><img src="assets/img/logo.png" alt="Logo de l'entreprise" title="Logo de l'entreprise"></a>
+            </ul>
+		  </div>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item{{ (route::currentRouteName() == 'accueil') ? ' active': ''}}">
-		        <a class="nav-link" href="{{URL::to('/')}}">Accueil <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Boutiques</a>
-		      </li>
-		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Produits</a>
-		      </li>		      
-		    </ul>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="col-8 offset-1">
-					<form class="form-inline ml-auto">
-						<div class="input-group mb-2 mr-sm-2 w-100">
-							<input type="text" class="form-control noBorder">
-							<div class="input-group-append">
-								<div class="input-group-text bgYellow whiteFont noBorder"><i class="fas fa-search"></i></div>
-							</div>
-						</div>
-					</form>
+		  </button>			  
+	</div>
+	<div class="col-8">
+		<form class="form-inline ml-auto">
+			<div class="input-group mb-2 mr-sm-2 w-100">
+				<input type="text" class="form-control noBorder">
+				<div class="input-group-append">
+					<div class="input-group-text bgYellow whiteFont noBorder"><i class="fas fa-search"></i></div>
 				</div>
-				<div class="col-2">
-					<p class="d-inline cartIcon bgRed whiteFont"><i class="fas fa-shopping-cart"></i></p>
-					<div class="d-inline-block">
-						<p>Total</p>
-						<p>$600.00</p>
-					</div>
+			</div>
+		</form>
+
+	</div>	
+	<div class="col-4 text-center">
+		   	<p class="d-inline cartIcon bgRed whiteFont"><i class="fas fa-shopping-cart"></i></p>
+				<div class="d-inline-block">
+					<p>Total</p>
+					<p>$600.00</p>
+				</div>		
 				</div>
-				<div class="col-2">
-				</div>
+	</div>
+</div>
 
-
-
-		  </div>
-		</div>
 		</nav>

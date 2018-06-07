@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'indexController@accueil'->name('acceuil'); 
+Route::get('/', 'indexController@accueil')->name('acceuil'); 
 
 Auth::routes();
 
@@ -39,8 +39,8 @@ Route::get('/boutiques/{idb}/produits/{idp}/validmodification', 'adminController
 Route::get('/boutiques/{idb}/produits/{idp}/suppressionn', 'adminController@produitssuppression')->middleware('auth')->name('prodsuppr');
 
 
-Route::get('/utilisateurs', 'adminController@utilisateurs')->middleware('auth')->name('utilisateurs');
-Route::get('/utilisateur/{id}', 'adminController@utilisateur')->middleware('auth')->name('adminutilisateur');
+Route::get('/utilisateurs', 'adminController@adminutilisateurs')->middleware('auth')->name('utilisateurs');
+Route::get('/utilisateur/{id}', 'adminController@adminutilisateur')->middleware('auth')->name('utilisateur');
 Route::get('/utilisateur/{id}/modif', 'adminController@modifutilisateur')->middleware('auth')->name('adminmodifutilisateur');
 Route::get('/utilisateur/{id}/validModif', 'adminController@valiModifutilisateur')->middleware('auth')->name('adminvalifModifutilisateur');
 Route::get('/utilisateur/{id}/suppresion', 'adminController@modifutilisateur')->middleware('auth')->name('adminsuppresionutilisateur');

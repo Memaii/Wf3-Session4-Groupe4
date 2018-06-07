@@ -49,9 +49,9 @@ Route::get('/utilisateur/{id}/validDesinscription', 'adminController@validDesins
 //Routes boutique
 
 Route::get('/boutiques', 'boutiqueController@boutiques')->middleware('auth')->name('boutiques');
-Route::get('/boutique{slug}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
+Route::get('/boutique/{slug}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
 
-Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm')
+Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm');
 
 //Routes gestion
 Route::prefix('gestion')->group(function(){

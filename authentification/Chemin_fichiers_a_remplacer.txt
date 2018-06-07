@@ -1,0 +1,13 @@
+app.php =>  C:\xampp\htdocs\htev\config
+
+register.blade.php   =>  C:\xampp\htdocs\htev\resources\views\auth
+
+database.php =>   C:\xampp\htdocs\htev\config
+
+.env =>   C:\xampp\htdocs\htev
+
+User.php  =>   C:\xampp\htdocs\htev\app
+
+RegisterCOntroller.php   =>   C:\xampp\htdocs\htev\app\Http\Controllers\Auth
+
+fr.json  =>    C:\xampp\htdocs\htev\resources\lang

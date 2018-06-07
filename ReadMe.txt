@@ -1,1 +1,0 @@
-Ce fichier est juste ici pour amorcer le projet sur GitHub.

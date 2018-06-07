@@ -19,45 +19,11 @@
 
 	</head>
 	<body>
-
+        <!-- Top Of Navbar -->
 		<nav class="navbar navbar-expand-md navbar-dark bgBlue pSticky py-1">
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto bgYellow">
-					<li class="nav-item p-0">
-						<a class="nav-link whiteFont p-1" href="#">Login <span class="sr-only">(Page active)</span></a>
-					</li>
-					<li class="nav-item p-0">
-						<a class="nav-link whiteFont p-1" href="#">Inscription</a>
-					</li>
-					<li class="nav-item p-0">
-						<a class="nav-link whiteFont p-1" href="#">Mon Panier</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<!-- Blue navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<div class="container">
-		  <a class="navbar-brand" href="{{URL::to('/')}}"><img src="assets/img/logo.png" alt="Logo de l'entreprise" title="Logo de l'entreprise"> {{ config('app.name') }}</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item{{ (route::currentRouteName() == 'accueil') ? ' active': ''}}">
-		        <a class="nav-link" href="{{URL::to('/')}}">Accueil <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Boutiques</a>
-		      </li>
-		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Produits</a>
-		      </li>		      
-		    </ul>  
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -85,7 +51,59 @@
                         </div>
                     </li>
                 @endguest
-            </ul>
+
+
+					<li class="nav-item p-0">
+						<a class="nav-link" href="#">Mon Panier</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- Blue navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bgBlue">
+		<div class="container">
+		  <a class="navbar-brand" href="{{URL::to('/')}}"><img src="assets/img/logo.png" alt="Logo de l'entreprise" title="Logo de l'entreprise"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item{{ (route::currentRouteName() == 'accueil') ? ' active': ''}}">
+		        <a class="nav-link" href="{{URL::to('/')}}">Accueil <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
+		        <a class="nav-link" href="#">Boutiques</a>
+		      </li>
+		      <li class="nav-item{{ (route::currentRouteName() == 'articles') ? ' active': ''}}">
+		        <a class="nav-link" href="#">Produits</a>
+		      </li>		      
+		    </ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="col-8 offset-1">
+					<form class="form-inline ml-auto">
+						<div class="input-group mb-2 mr-sm-2 w-100">
+							<input type="text" class="form-control noBorder">
+							<div class="input-group-append">
+								<div class="input-group-text bgYellow whiteFont noBorder"><i class="fas fa-search"></i></div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-2">
+					<p class="d-inline cartIcon bgRed whiteFont"><i class="fas fa-shopping-cart"></i></p>
+					<div class="d-inline-block">
+						<p>Total</p>
+						<p>$600.00</p>
+					</div>
+				</div>
+				<div class="col-2">
+				</div>
+
+
+
 		  </div>
 		</div>
 		</nav>

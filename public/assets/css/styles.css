@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Russo+One');
-@import url('https://fonts.googleapis.com/css?family=Russo+One');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 body{
-	font-family: 'Lato', cursive;
+	font-family: 'Ubuntu', cursive;
+}
+h1, h2, h3, h4, h5, h5{
+	font-family: 'Russo One', sans-serif;
 }
 header{
 	padding-bottom: 20px;
@@ -61,7 +64,7 @@ main h2{
 	margin-right:30px;
 }
 .bgBlue{
-	background-color: 156192;
+	background-color: #156192;
 }
 .bgYellow{
 	background-color: #febf00;
@@ -278,10 +281,7 @@ footer .nav-link{
 	transform: scale(1.5);
 	transition: 2s;
 }
-@media (max-width: 576px) { 
-/*	body{
-		font-size: 10px;
-	}*/
+/*@media (max-width: 576px) { 
 	.lSpacer, .rSpacer{
 		margin:0;
 	}
@@ -297,7 +297,7 @@ footer .nav-link{
 
 @media (min-width: 768px) { 
 	body{
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.lSpacer{
 		margin-left:30px;
@@ -309,13 +309,14 @@ footer .nav-link{
 
 @media (min-width: 992px) { 
 	body{
-		font-size: 12px;
+		font-size: 20px;
 	}
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { 
 }
+*/
 #feedback{
 	display: none;
 }

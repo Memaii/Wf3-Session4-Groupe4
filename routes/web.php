@@ -56,14 +56,14 @@ Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->mid
 //Routes gestion
 Route::prefix('gestion')->group(function(){
 
-Route::get('/boutique/{id}', 'gestionController@gestionboutique')->middleware('auth')->name('gestboutique');
-Route::get('/boutique/{id}/profil', 'gestionController@profilboutique')->middleware('auth')->name('profilboutique');
-Route::get('/boutique/{id}/profil/modif', 'gestionController@modifboutique')->middleware('auth')->name('modifboutique');
-Route::get('/boutique/{id}/profil/validmodif', 'gestionController@validmodifboutique')->middleware('auth')->name('validmodifboutique');
-Route::get('/boutique/{id}/produits', 'gestionController@produitsboutique')->middleware('auth')->name('produitsboutique');
-Route::get('/boutique/{id}/produits/{id}/modif', 'gestionController@modifproduits')->middleware('auth')->name('modifproduits');
-Route::get('/boutique/{id}/produits/{id}/valid', 'gestionController@validModifproduits')->middleware('auth')->name('validodifproduits');
-Route::get('/boutique/{id}/produits/{id}/suppr', 'gestionController@supprproduits')->middleware('auth')->name('supprproduits');
+Route::get('/boutique/{idb}', 'gestionController@gestionboutique')->middleware('auth')->name('gestboutique');
+Route::get('/boutique/{idb}/profil', 'gestionController@profilboutique')->middleware('auth')->name('profilboutique');
+Route::get('/boutique/{idb}/profil/modif', 'gestionController@modifboutique')->middleware('auth')->name('modifboutique');
+Route::get('/boutique/{idb}/profil/validmodif', 'gestionController@validmodifboutique')->middleware('auth')->name('validmodifboutique');
+Route::get('/boutique/{idb}/produits', 'gestionController@produitsboutique')->middleware('auth')->name('produitsboutique');
+Route::get('/boutique/{idb}/produits/{idp}/modif', 'gestionController@modifproduits')->middleware('auth')->name('modifproduits');
+Route::get('/boutique/{idb}/produits/{idp/valid', 'gestionController@validModifproduits')->middleware('auth')->name('validodifproduits');
+Route::get('/boutique/{idb}/produits/{idp}/suppr', 'gestionController@supprproduits')->middleware('auth')->name('supprproduits');
 });
 //Routes catégorie
 

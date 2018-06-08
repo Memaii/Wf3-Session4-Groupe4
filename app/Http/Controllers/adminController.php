@@ -93,25 +93,16 @@ class adminController extends Controller
 	// Supprime un utilisateur
 	public function adminSuppresionUtilisateur($id){
 		if(Auth::user()->role == 4){
-			$user = Users::where('iduser', $id)->first();
-			$listeart = Articles::where('users_iduser', $id)->get();
+			$user = Users::where('id', $id)->first();
+			$listeorder = Order::where('client_account_id', $id)->get();
 
-			foreach($listeart as $art){
-				ArthasCateg::where('articles_idarticle', $art->idarticle)->delete();// suppression des liens entre l'article et les catégories
-				ArthasMots::where('articles_idarticle', $art->idarticle)->delete();// suppression des liens entre l'article et les mots clés
-				Commentaires::where('articles_idarticle', $art->idarticle)->delete();// suppression des commentaires de l'article
-				if(!empty($art->featuredimage)){
-					$fichier = public_path('/assets/img/uploads/featured/').$art->featuredimage;
-					if(file_exists($fichier)){
-						unlink($fichier);// suppression de l'image de l'article
-					}else{
-						echo 'file not found';
-					}
-				}
-				Article::where('idarticle', $art->idarticle)->delete();// suppression de l'article
+			foreach($listeorder as $order){
+				Delivery::where('id', $order->id)->delete();
+				Payment::where('id', $order->id)->delete();
+				RecapOrder::where('order_id', $order->id)->delete();
+				Order::where('id', $order->id)->delete();
 			}
-
-			Users::destroy($id);// suppression de l'utilisateur
+			Users::destroy($id);
 
 			return redirect()->back()->with('message', 'Suppréssion efféctuée');
 		}else{

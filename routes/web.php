@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/utilisateurs', 'adminController@adminUtilisateurs')->middleware('auth')->name('adminUtilisateurs');
 	Route::get('/utilisateur/{id}', 'adminController@adminUtilisateur')->middleware('auth')->name('adminUtilisateur');
 	Route::get('/utilisateur/{id}/modif', 'adminController@adminModifUtilisateur')->middleware('auth')->name('adminModifUtilisateur');
-	Route::get('/utilisateur/{id}/validModif', 'adminController@adminValiModifUtilisateur')->middleware('auth')->name('adminValifModifUtilisateur');
+	Route::get('/utilisateur/{id}/validModif', 'adminController@adminValidModifUtilisateur')->middleware('auth')->name('adminValidModifUtilisateur');
 	Route::get('/utilisateur/{id}/suppresion', 'adminController@adminSuppresionUtilisateur')->middleware('auth')->name('adminSuppresionUtilisateur');
 	Route::get('/utilisateur/{id}/validDesinscription', 'adminController@validDesinscriptionUtilisateur')->middleware('auth')->name('validDesinscriptionUtilisateur');
 
@@ -49,7 +49,7 @@ Route::prefix('admin')->group(function(){
 
 //Routes boutique
 Route::get('/boutiques', 'boutiqueController@boutiques')->middleware('auth')->name('boutiques');
-Route::get('/boutique/{slug}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
+Route::get('/boutique/{id}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
 Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm');
 
 
@@ -105,15 +105,15 @@ Route::get('/inscription', 'inscriptionController@inscription')->middleware('aut
 
 
 //Route mentions-légales
-Route::get('/mentions-legales', 'mentions-legalController@m-l')->middleware('auth')->name('m-l');
+Route::get('/mentions-legales', 'footerController@m-l')->middleware('auth')->name('m-l');
 
 
 //Route vie privée
-Route::get('/vie-privee', 'vie-priveeController@vie-privee')->middleware('auth')->name('vie-privee');
+Route::get('/vie-privee', 'footerController@vie-privee')->middleware('auth')->name('vie-privee');
 
 
 //Route CGVD
-Route::get('/cgdv', 'cgdvController@cgdv')->middleware('auth')->name('cgdv');
+Route::get('/cgdv', 'footerController@cgdv')->middleware('auth')->name('cgdv');
 
 
 Auth::routes();

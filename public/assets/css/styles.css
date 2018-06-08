@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+body{
+	font-family: 'Ubuntu', cursive;
+}
+h1, h2, h3, h4, h5, h5{
+	font-family: 'Russo One', sans-serif;
+}
+header{
+	padding-bottom: 20px;
+}
+header>section{
+	padding-right: 0 !important;
+}
+header ul li{
+	text-align: right;
+}
+.nav-link{
+	font-size: 1.5em;
+}
+.pSticky{
+	position: sticky;
+	top: 0;
+	 z-index: 10000;
+}
+.bgYellow li a{
+	color: #156192 !important;
+	font-family: 'Russo One', sans-serif;
+	font-size: 1rem;
+}
+.bgYellow li a::after{
+	content:'';
+	border-right:2px solid #156192;
+	padding-right: 17px;
+}
+.bgYellow li:last-of-type a::after{
+	content:'';
+	border-right:none;
+	padding-right: 0;
+}
+main{
+	background-color: #f3f3f3;
+	padding-bottom: 30px;
+}
+main h2{
+	text-transform: uppercase;
+	font-size: 2em;
+	margin-top: 20px;
+	font-family: 'Russo One', sans-serif;
+}
+.mt20{
+	margin-top: 20px;
+}
+.ml10{
+	margin-left: 10px;
+}
+.mr10{
+	margin-right: 10px;
+}
+.pb10{
+	padding-bottom: 10px;
+}
+.lSpacer{
+	margin-left:30px;
+}
+.rSpacer{
+	margin-right:30px;
+}
+.bgBlue{
+	background-color: #156192;
+}
+.bgYellow{
+	background-color: #febf00;
+}
+.bgBlack{
+	background-color: #000;
+}
+.bgDarkGrey{
+	background-color: #000000;
+}
+.bgLightDarkGrey{
+	background-color: #1f1e1e;
+}
+.whiteFont{
+	color: white !important;
+}
+.noBorder{
+	border: none;
+}
+.cartIcon{
+	padding:10px;
+	border-radius: 50%;
+	position: relative;
+	top: -12px;
+}
+.slogan{
+	color: #febf00
+}
+.cartIcon+div p{
+	color: white;
+	margin: 0;
+}
+#navMenu{
+	text-transform: uppercase;
+}
+nav{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+#navMenu ul>li a{
+	color: white;
+}
+#catList ul{
+	list-style-type: none;
+	padding-left: 0;
+}
+#catList ul>li{
+	padding: 5px;
+	border-bottom: 1px solid lightgrey;
+}
+#dove{
+	padding:0;
+}
+#s1 .col{
+	background-color: #f10d33;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#s1 .col p{
+	margin: 0;
+}
+#s1 .col p:first-child{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+#catList, #hotDeals, #specialDeal, #newsletter,aside .col-12,#s2>.col-12,#s3 .row,#s4>.col-12,#s5,#s6>.col-12{
+	background-color: white;
+	box-shadow: 0 0 5px lightgrey;
+}
+#s3{
+	justify-content: space-around;
+}
+#s3 .col{
+  text-align: right;
+}
+.descriptionp{
+	font-size: 20px;
+	font-family: 'Russo One', sans-serif;
+}
+
+
+
+.promo{
+	margin-top: 100px
+	;
+	text-transform: uppercase;
+	background-color: black;
+	padding: 10px;
+	font-weight: 700;
+	text-align: center;
+}
+.promo h2{
+	color: #303a7a;
+}
+.promo h3{
+	color: white;
+	font-size: 1.8em;
+}	
+.promo p{
+	color: white;
+	font-size: 1.5em;
+}
+.promo+p{
+	text-align: center;
+	margin: 50px auto;
+}
+.promo+p .btn-outline-dark{
+	border-radius: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.card{
+	border-radius: 0;
+	border: none;
+}
+.card p{
+	text-align: center;
+}
+
+.description-boutique{
+	font-weight: bold;
+	font-size: 20px		
+}
+.stars{
+	color: yellow;
+}
+#s6 .card-text{
+	margin:0;
+}
+
+.year{
+	font-family: 'Raleway', sans-serif;
+	font-size: 3.5em;
+	font-weight: 900;
+	color: #e3e3e3;
+	padding-top: 25px;
+	margin: 0;
+	line-height: 1;
+}
+.subtitle{
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 1.4em;
+	margin: 0;
+}
+.smallText{
+	font-size: 0.8em;
+	color: #e3e3e3;
+}
+#s5 .col-6:first-child{
+	background: url('../img/laptops.png') no-repeat center;
+	background-size: cover;
+}
+#s5 h2{
+	font-size: 1.5em;
+	padding-top: 25px;
+	text-transform: uppercase;
+}
+#s5 h2+p{
+	color:blue;
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+#s5 a{
+	border:none;
+	border-radius: 15px;
+}
+#s6 .col-3{
+	margin-top:15px;
+	margin-bottom: 15px;
+}
+#brandLine{
+	padding: 20px;
+}
+#coordinates{
+	padding-top:50px;
+	color: #f3f3f3;
+}
+#coordinates i{
+	color:#f10d33;
+}
+#coordinates p, footer ul li{
+	font-size:0.8em;
+}
+#coordinates h2{
+	text-transform: uppercase;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+footer{
+	color: #f3f3f3;
+	margin: 0;
+	padding: 30px 0;
+	text-align: center;
+}
+footer p{
+	margin: 0;
+}
+footer .nav-link{
+	color: white !important;
+}
+.card-image{
+	/*overflow: hidden;*/
+}
+.card-img-top{
+	transition: 2s;
+}
+.card-img-top:hover{
+	transform: scale(1.5);
+	transition: 2s;
+}
+/*@media (max-width: 576px) { 
+	.lSpacer, .rSpacer{
+		margin:0;
+	}
+}
+@media (min-width: 576px) { 
+	body{
+		font-size: 10px;
+	}
+	.lSpacer, .rSpacer{
+		margin:0;
+	}
+}
+
+@media (min-width: 768px) { 
+	body{
+		font-size: 12px;
+	}
+	.lSpacer{
+		margin-left:30px;
+	}
+	.rSpacer{
+		margin-right:30px;
+	}
+}
+
+@media (min-width: 992px) { 
+	body{
+		font-size: 20px;
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+}
+*/
+#feedback{
+	display: none;
+}
+.fa-shopping-cart{
+	font-size: 25px
+	
+}
+.dropdown:hover > #cart-dropdown{
+  display: block;
+}
+
+/* JS */
+// comportement du panier au survol pour affichage de son contenu
+var timeout;
+
+$('#cart').on({
+  mouseenter: function() {
+    $('#cart-dropdown').show();
+  },
+  mouseleave: function() {
+    timeout = setTimeout(function() {
+      $('#cart-dropdown').hide();
+    }, 200);
+  }
+});
+
+// laisse le contenu ouvert à son survol
+// le cache quand la souris sort
+$('#cart-dropdown').on({
+  mouseenter: function() {
+    clearTimeout(timeout);
+  },
+  mouseleave: function() {
+    $('#cart-dropdown').hide();
+  }
+});

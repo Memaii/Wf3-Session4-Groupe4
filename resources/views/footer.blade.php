@@ -14,7 +14,7 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 					<section class="col-md-6 col-lg-3">
 						<h2>Information</h2>
 						<p>Politique & Confidentialité</p>
-						<p>Termes et Conditions</p>
+						<p>Mentoin Légale</p>
 						<p>Expédition & Livraison</p>
 						<p>FAQs</p>
 					</section>

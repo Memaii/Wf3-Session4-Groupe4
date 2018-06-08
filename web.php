@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'indexController@accueil')->name('accueil');
+
 // ne pas toucher
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
@@ -49,7 +48,7 @@ Route::prefix('admin')->group(function(){
 
 //Routes boutique
 Route::get('/boutiques', 'boutiqueController@boutiques')->middleware('auth')->name('boutiques');
-Route::get('/boutique/{slug}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
+Route::get('/boutique/{id}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
 Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm');
 
 

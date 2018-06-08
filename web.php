@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'indexController@accueil')->name('accueil');
-
+Route::get('/', function () {
+    return view('welcome');
+});
 // ne pas toucher
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 

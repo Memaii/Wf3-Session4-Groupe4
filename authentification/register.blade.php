@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                        {{ csrf_field() }}
                         @if(session('message'))
                         <div class="alert alert-success text-center">
                             {{ session('message') }}

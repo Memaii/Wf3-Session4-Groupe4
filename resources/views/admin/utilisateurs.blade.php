@@ -120,7 +120,7 @@
 						$(this).find('.modal-title').html("voulez vous vraiment supprimer l'utilisateur :");
 						$(this).find('.modal-body p').html(titre);
 
-						$("#confirm").attr("href", "{{URL::to('/')}}/admin/supprUtilisateur/"+id);
+						$("#confirm").attr("href", "{{URL::to('/')}}/admin/utilisateur/"+id+"/suppresion");
 					})
 				</script>
 			</div>

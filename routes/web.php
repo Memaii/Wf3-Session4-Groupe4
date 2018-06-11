@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 // ne pas toucher
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
@@ -26,8 +26,12 @@ Route::prefix('admin')->group(function(){
 	// boutiques
 	Route::get('/boutiques', 'adminController@adminboutiques')->middleware('auth')->name('adminboutiques');
 	Route::get('/boutiques/{idb}', 'adminController@adminboutique')->middleware('auth')->name('adminboutique');
+	Route::get('/boutiques/{idb}/active', 'adminController@activeboutique')->middleware('auth')->name('activeboutique');
 	Route::get('/boutiques/{idb}/profil', 'adminController@adminprofilboutique')->middleware('auth')->name('adminprofilboutique');
+	Route::get('/boutiques/{idb}/bannir', 'adminController@bannirBoutique')->middleware('auth')->name('bannirBoutique');
+	Route::get('/boutiques/{idb}/debannir', 'adminController@debannirBoutique')->middleware('auth')->name('debannirBoutique');
 	Route::get('/boutiques/{idb}/profil/modif', 'adminController@modifboutique')->middleware('auth')->name('modifboutique');
+	Route::get('/boutiques/{idb}/suppr', 'adminController@supprboutique')->middleware('auth')->name('supprboutique');
 	Route::get('/boutiques/{idb}/profil/validmodif', 'adminController@validmodifboutique')->middleware('auth')->name('validmodifboutique');
 	Route::get('/boutiques/{idb}/produits', 'adminController@produitsboutique')->middleware('auth')->name('prodboutique');
 	Route::get('/boutiques/{idb}/produits/{idp}/modification', 'adminController@produitsmodif')->middleware('auth')->name('prodmodif');

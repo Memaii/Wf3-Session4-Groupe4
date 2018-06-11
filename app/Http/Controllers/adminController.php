@@ -31,12 +31,88 @@ class adminController extends Controller
 	public function adminboutiques(){
 		if(Auth::user()->role == 4){
 			$nbShops = Shops::count();
+			$listboutiques = Shops::get();
 			$nbActiveShops = Shops::where('statut_shop', 1)->count();
-			return view('admin.boutiques', ['nbUsers' => $nbUsers, 'nbShops' => $nbShops, 'nbActiveShops' => $nbActiveShops]);
+			return view('admin.boutiques', [ 'nbShops' => $nbShops, 'nbActiveShops' => $nbActiveShops, 'boutiques' => $listboutiques]);
 		}else{
 			return abort('404');
 		}
 	}
+
+	// Active une boutique
+
+	public function activeboutique($idb){
+		if(Auth::user()->role == 4){
+			Shops::where('id_shop', $idb)->update(['statut_shop'=> 2,]);
+			$boutique = Shops::select('name_shop')->where('id_shop', $idb)->first();
+			return redirect()->back()->with('message', "La boutique ".$boutique['name_shop']." à été activée");
+		}else{
+			return abort('404');
+		}
+	}
+
+		// Bannir une boutique
+	public function bannirboutique($idb){
+		if(Auth::user()->role == 4){
+			Shops::where('id_shop', $idb)->update(['statut_shop'=> 0,]);
+			$boutique = Shops::select('name_shop')->where('id_shop', $idb)->first();
+			return redirect()->back()->with('message', "La boutique ".$boutique['name_shop']." à été bannie");
+		}else{
+			return abort('404');
+		}
+	}
+
+		// debannir une boutique
+	public function debannirBoutique($idb){
+		if(Auth::user()->role == 4){
+			Shops::where('id_shop', $idb)->update(['statut_shop'=> 2,]);
+			$boutique = Shops::select('name_shop')->where('id_shop', $idb)->first();
+			return redirect()->back()->with('message', "La boutique ".$boutique['name_shop']." à été débannie");
+		}else{
+			return abort('404');
+		}
+	}
+
+		// Supprime une boutique
+	public function supprboutique($idb){
+		if(Auth::user()->role == 4){
+			$boutique = Shops::where('id_shop', $idb)->first();
+
+			if(!empty($boutique->link_logo)){
+				$fichier = public_path('/assets/img/uploads/featured/'.$boutique->link_logo);
+				if(file_exists($fichier)){
+					unlink($fichier);// suppression du logo de la boutique
+				}else{
+					echo 'file not found';
+				}
+			}
+
+			if(!empty($boutique->link_img)){
+				$fichier = public_path('/assets/img/uploads/featured/'.$boutique->link_img);
+				if(file_exists($fichier)){
+					unlink($fichier);// suppression de l'image de la boutique
+				}else{
+					echo 'file not found';
+				}
+			}
+
+			if(!empty($boutique->link_min_img)){
+				$fichier = public_path('/assets/img/uploads/featured/'.$boutique->link_min_img);
+				if(file_exists($fichier)){
+					unlink($fichier);// suppression de la miniature de l'image de la boutique
+				}else{
+					echo 'file not found';
+				}
+			}
+
+			Shops::destroy($idb);
+
+			return redirect()->back()->with('message', 'Suppression effectuée');
+		}else{
+			return abort('404');
+		}
+	}
+
 
 // utilisateurs
 	// Affiche la page admin utilisateurs
@@ -93,29 +169,21 @@ class adminController extends Controller
 	// Supprime un utilisateur
 	public function adminSuppresionUtilisateur($id){
 		if(Auth::user()->role == 4){
-			$user = Users::where('iduser', $id)->first();
-			$listeart = Articles::where('users_iduser', $id)->get();
+			$user = Users::where('id', $id)->first();
+			$listeorder = Order::where('client_account_id', $id)->get();
 
-			foreach($listeart as $art){
-				ArthasCateg::where('articles_idarticle', $art->idarticle)->delete();// suppression des liens entre l'article et les catégories
-				ArthasMots::where('articles_idarticle', $art->idarticle)->delete();// suppression des liens entre l'article et les mots clés
-				Commentaires::where('articles_idarticle', $art->idarticle)->delete();// suppression des commentaires de l'article
-				if(!empty($art->featuredimage)){
-					$fichier = public_path('/assets/img/uploads/featured/').$art->featuredimage;
-					if(file_exists($fichier)){
-						unlink($fichier);// suppression de l'image de l'article
-					}else{
-						echo 'file not found';
-					}
-				}
-				Article::where('idarticle', $art->idarticle)->delete();// suppression de l'article
+			foreach($listeorder as $order){
+				Delivery::where('id', $order->id)->delete();
+				Payment::where('id', $order->id)->delete();
+				RecapOrder::where('order_id', $order->id)->delete();
+				Order::where('id', $order->id)->delete();
 			}
-
-			Users::destroy($id);// suppression de l'utilisateur
+			Users::destroy($id);
 
 			return redirect()->back()->with('message', 'Suppréssion efféctuée');
 		}else{
 			return abort('404');
 		}
 	}
+
 }

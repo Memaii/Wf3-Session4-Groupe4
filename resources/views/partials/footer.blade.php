@@ -13,7 +13,7 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 					</section>
 					<section class="col-md-6 col-lg-3">
 						<h2>Information</h2>
-						<p>Politique & Confidentialité</p>
+						<p>Politique & Confidentialité></p>
 
 						<p>Mentoin Légale</p>
 						<p>Expédition & Livraison</p>
@@ -40,8 +40,10 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 
 
 						<h2>Modalité de paiement</h2>
-						<p><img src="assets/img/payment.png"></p>
-						<p><img src="assets/img/payment2.png"></p>
+						<p><i class="fab fa-cc-visa"></i> Carte VISA</p>
+						<p><i class="fab fa-cc-paypal"></i> PayPal</p>
+						<p><i class="fab fa-cc-amex"></i> American Express</p>
+						<p></p>
 					</section>		
 				</div>
 			</div><!-- /container -->

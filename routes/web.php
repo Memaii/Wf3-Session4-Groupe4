@@ -31,8 +31,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/boutiques/{idb}/bannir', 'adminController@bannirBoutique')->middleware('auth')->name('bannirBoutique');
 	Route::get('/boutiques/{idb}/debannir', 'adminController@debannirBoutique')->middleware('auth')->name('debannirBoutique');
 	Route::get('/boutiques/{idb}/profil/modif', 'adminController@adminModifBoutique')->middleware('auth')->name('adminModifBoutique');
-	Route::get('/boutiques/{idb}/profil/validmodif', 'adminController@adminValidModifBoutique')->middleware('auth')->name('
-		adminValidModifBoutique');
+	Route::post('/boutiques/{idb}/profil/validmodif', 'adminController@adminValidModifBoutique')->middleware('auth')->name('adminValidModifBoutique');
 	Route::get('/boutiques/{idb}/suppr', 'adminController@supprboutique')->middleware('auth')->name('supprboutique');
 	Route::get('/boutiques/{idb}/produits', 'adminController@produitsboutique')->middleware('auth')->name('prodboutique');
 	Route::get('/boutiques/{idb}/produits/{idp}/modification', 'adminController@produitsmodif')->middleware('auth')->name('prodmodif');
@@ -43,7 +42,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/utilisateurs', 'adminController@adminUtilisateurs')->middleware('auth')->name('adminUtilisateurs');
 	Route::get('/utilisateur/{id}', 'adminController@adminUtilisateur')->middleware('auth')->name('adminUtilisateur');
 	Route::get('/utilisateur/{id}/modif', 'adminController@adminModifUtilisateur')->middleware('auth')->name('adminModifUtilisateur');
-	Route::get('/utilisateur/{id}/validModif', 'adminController@adminValidModifUtilisateur')->middleware('auth')->name('adminValidModifUtilisateur');
+	Route::post('/utilisateur/{id}/validModif', 'adminController@adminValidModifUtilisateur')->middleware('auth')->name('adminValidModifUtilisateur');
 	Route::get('/utilisateur/{id}/suppresion', 'adminController@adminSuppresionUtilisateur')->middleware('auth')->name('adminSuppresionUtilisateur');
 	Route::get('/utilisateur/{id}/validDesinscription', 'adminController@validDesinscriptionUtilisateur')->middleware('auth')->name('validDesinscriptionUtilisateur');
 

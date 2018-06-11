@@ -56,24 +56,29 @@
 					</td>
 					{{-- bouttons d'actions --}}
 					<td  class="text-center">
+						{{-- boutton active boutique --}}
+						@if($boutique->statut_shop == 1)
+						<a class="btn btn-success btn-sm" href="{{ route('activeboutique',['id' => $boutique->id_shop]) }}">Activer</a>
+						@endif
+
 						{{-- boutton bannir --}}
 						@if($boutique->statut_shop != 0)
 						@if($boutique->statut_shop != 4)
-						<a class="btn btn-warning btn-sm" href="{{ route('adminBannirUtilisateur',['id' => $boutique->id]) }}">Bannir</a>
+						<a class="btn btn-warning btn-sm" href="{{ route('bannirBoutique',['id' => $boutique->id_shop]) }}">Bannir</a>
 						@endif
 						@endif
 
 						{{-- boutton bannir --}}
 						@if($boutique->statut_shop == 0)
-						<a class="btn btn-warning btn-sm" href="{{ route('adminDebannirUtilisateur',['id' => $boutique->id]) }}">Débannir</a>
+						<a class="btn btn-warning btn-sm" href="{{ route('debannirBoutique',['id' => $boutique->id_shop]) }}">Débannir</a>
 						@endif
 
 						{{-- boutton modification --}}
-						<a class="btn btn-success btn-sm" href="{{ route('adminModifUtilisateur',['id' => $boutique->id]) }}">Modifier</a>
+						<a class="btn btn-success btn-sm" href="{{ route('adminModifBoutique',['id' => $boutique->id_shop]) }}">Modifier</a>
 
 						{{-- boutton suppression --}}
 						@if($boutique->statut_shop == 0)
-						<a class="btn btn-danger btn-sm" href="{{ route('supprboutique',['id' => $boutique->id]) }}" data-toggle="modal" data-target="#confirmModale" data-id="{{ $boutique->id }}" data-titre="{{ $boutique->name_shop }}">Supprimer</a>
+						<a class="btn btn-danger btn-sm" href="{{ route('supprboutique',['id' => $boutique->id_shop]) }}" data-toggle="modal" data-target="#confirmModale" data-id="{{ $boutique->id_shop }}" data-titre="{{ $boutique->name_shop }}">Supprimer</a>
 						@endif
 
 					{{-- Modal --}}
@@ -105,7 +110,7 @@
 								$(this).find('.modal-title').html("Voulez vous vraiment supprimer la boutique :");
 								$(this).find('.modal-body p').html(titre);
 
-								$("#confirm").attr("href", "{{URL::to('/')}}/admin/boutique/"+id+"/suppr");
+								$("#confirm").attr("href", "{{URL::to('/')}}/admin/boutiques/"+id+"/suppr");
 							})
 						</script>
 					{{-- Modal --}}

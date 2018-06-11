@@ -32,7 +32,8 @@ class adminController extends Controller
 		if(Auth::user()->role == 4){
 			$nbShops = Shops::count();
 			$nbActiveShops = Shops::where('statut_shop', 1)->count();
-			return view('admin.boutiques', ['nbShops' => $nbShops, 'nbActiveShops' => $nbActiveShops]);
+			$listboutiques = Shops::get();
+			return view('admin.boutiques', ['nbShops' => $nbShops, 'nbActiveShops' => $nbActiveShops, 'boutiques' => $listboutiques]);
 		}else{
 			return abort('404');
 		}

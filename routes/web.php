@@ -57,6 +57,8 @@ Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->mid
 
 //Routes gestion
 Route::prefix('gestion')->group(function(){
+	Route::get('/boutique/ajout', 'gestionController@ajoutboutique')->middleware('auth')->name('ajoutboutique');
+	Route::post('/boutique/post', 'gestionController@postboutique')->middleware('auth')->name('postboutique');	
 	Route::get('/boutique/{idb}', 'gestionController@gestionboutique')->middleware('auth')->name('gestboutique');
 	Route::get('/boutique/{idb}/profil', 'gestionController@profilboutique')->middleware('auth')->name('profilboutique');
 	Route::get('/boutique/{idb}/profil/modif', 'gestionController@userModifBoutique')->middleware('auth')->name('userModifBoutique');

@@ -32,7 +32,7 @@
 			@if(Auth::user()->role == 1)
 				<p><a type="button" class="btn bgBlue whiteFont" href="{{ route('ajoutboutique') }}">création d'une boutique</a></p>
 			@elseif(Auth::user()->role == 2)
-				<p><a type="button" class="btn bgBlue whiteFont" href="{{ route('gestboutique',['id' => $infosShop->id_shop])}}">gestion de la boutique</a></p>
+				<p><a type="button" class="btn bgBlue whiteFont" href="{{ route('gestboutique',['slug' => $infosShop->slug_shop])}}">gestion de la boutique</a></p>
 			@endif
 			<p><a type="button" class="btn bgBlue whiteFont" href="{{ route('resetPassword') }}">changement du mot de passe</a></p>
 			<p><a type="button" class="btn btn-danger" href="{{ route('Desinscription') }}">désinscription</a></p>

@@ -52,6 +52,9 @@
 		    		@if (Auth::user()->role == 4)
 		    		<li><a class="nav-link{{ ($routePrefix == '/admin') ? ' active': ''}}" href="{{route('admin')}}">{{ __('Admin') }}</a></li>
 		    		@endif
+		    		@if (Auth::user()->role == 2)
+		    		<li><a class="nav-link{{ ($routePrefix == '/gestion') ? ' active': ''}}" href="{{route('gestboutique',1)}}">Gestion boutique</a></li>
+		    		@endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

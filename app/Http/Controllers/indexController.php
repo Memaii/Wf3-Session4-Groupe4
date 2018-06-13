@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\listeboutiquesModel as Shops;
+
+
 class indexController extends Controller
 {
     public function accueil(){
-    
-    	$titre = "Page d'accueil HTEV";
-    	return view('welcome', ['titre' => $titre]);
+    	$shops = Shops::paginate(10);
+
+    	return view('welcome', ['shops' => $shops]);
     }
 }

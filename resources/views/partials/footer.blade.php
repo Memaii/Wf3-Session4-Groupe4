@@ -6,15 +6,16 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 				<div class="row">
 					<section class="col-md-6 col-lg-3">
 						
-						
+						<h2>Coordonnée</h2>
 						<p><i class="fas fa-map-marker-alt"></i>&nbsp;0123&nbsp;Rue, De La&nbsp;Gare, Auxerre&nbsp;89000</p>
 						<p><i class="fas fa-phone"></i>&nbsp;(+33)&nbsp;386010203</p>
 						<p><i class="fas fa-envelope"></i>&nbsp;info@psdfreebies.com</p>
 					</section>
 					<section class="col-md-6 col-lg-3">
 						<h2>Information</h2>
-						<p>Politique & Confidentialité</p>
-						<p>Termes et Conditions</p>
+						<p>Politique & Confidentialité></p>
+
+						<p>Mentoin Légale</p>
 						<p>Expédition & Livraison</p>
 						<p>FAQs</p>
 					</section>
@@ -38,9 +39,11 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 					<section class="col-md-6 col-lg-3">
 
 
-						<h2>Payment Option</h2>
-						<p><img src="assets/img/payment.png"></p>
-						<p><img src="assets/img/payment2.png"></p>
+						<h2>Modalité de paiement</h2>
+						<p><i class="fab fa-cc-visa"></i> Carte VISA</p>
+						<p><i class="fab fa-cc-paypal"></i> PayPal</p>
+						<p><i class="fab fa-cc-amex"></i> American Express</p>
+						<p></p>
 					</section>		
 				</div>
 			</div><!-- /container -->
@@ -65,7 +68,7 @@ $routePrefix = Route::getCurrentRoute()->getPrefix();
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="#">Contacte</a>
+							<a class="nav-link" href="#">Contact</a>
 						</li>
 					</ul>
 				</div>

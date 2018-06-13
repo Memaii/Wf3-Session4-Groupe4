@@ -1,7 +1,0 @@
-web.php : 
-modification de toutes les routes /admin/utilisateur/...
-modification de la route /mentions-legales
-ajout des routes :
--/admin/utilisateur/{id}/bannir
--/admin/utilisateur/{id}/debannir
--/user/verify/{token}

@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'indexController@accueil')->name('accueil');
-
 // ne pas toucher
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
@@ -58,6 +57,8 @@ Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->mid
 
 //Routes gestion
 Route::prefix('gestion')->group(function(){
+	Route::get('/boutique/ajout', 'gestionController@ajoutboutique')->middleware('auth')->name('ajoutboutique');
+	Route::post('/boutique/post', 'gestionController@postboutique')->middleware('auth')->name('postboutique');	
 	Route::get('/boutique/{idb}', 'gestionController@gestionboutique')->middleware('auth')->name('gestboutique');
 	Route::get('/boutique/{idb}/profil', 'gestionController@profilboutique')->middleware('auth')->name('profilboutique');
 	Route::get('/boutique/{idb}/profil/modif', 'gestionController@userModifBoutique')->middleware('auth')->name('userModifBoutique');
@@ -91,6 +92,8 @@ Route::prefix('utilisateur')->group(function(){
 	Route::get('/modif', 'utilisateurController@modif')->middleware('auth')->name('Modif');
 	Route::get('/validationmodif', 'utilisateurController@validationModif')->middleware('auth')->name('validModif');
 	Route::get('/creationboutique', 'utilisateurController@creationBoutique')->middleware('auth')->name('creationBoutique');
+	Route::get('/resetPassword', 'utilisateurController@resetPassword')->middleware('auth')->name('resetPassword');
+	Route::post('/postPassword', 'utilisateurController@postPassword')->middleware('auth')->name('postPassword');
 	Route::get('/desinscription', 'utilisateurController@desinscription')->middleware('auth')->name('Desinscription');
 	Route::get('/validationdesinscription', 'utilisateurController@validationdesinscription')->middleware('auth')->name('ValidDesincription');
 	Route::get('/ajoutCommande', 'utilisateurController@ajoutCommande')->middleware('auth')->name('ajoutCommande');

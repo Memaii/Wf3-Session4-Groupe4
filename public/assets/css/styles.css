@@ -38,6 +38,12 @@ header ul li{
 	border-right:none;
 	padding-right: 0;
 }
+.tdhAdmin{
+	border-right: #33d4ff 3px solid;
+}
+.trAdmin{
+	border-top: #33d4ff 3px solid;
+}
 main{
 	background-color: #f3f3f3;
 	padding-bottom: 30px;

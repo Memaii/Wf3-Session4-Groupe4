@@ -20,7 +20,7 @@ class gestionController extends Controller
         }
     }
     public function ajoutboutique(){
-        if(Auth::user()->role == 2){        
+        if(Auth::user()->role !=0){        
 
     	   return view('gestion.ajoutboutique');
         }else{

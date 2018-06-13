@@ -10,7 +10,7 @@ use App\listeboutiquesModel as Shops;
 class indexController extends Controller
 {
     public function accueil(){
-    	$shops = Shops::paginate(10);
+    	$shops = Shops::where('statut_shop',2)->paginate(10);
 
     	return view('welcome', ['shops' => $shops]);
     }

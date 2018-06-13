@@ -19,6 +19,39 @@ class gestionController extends Controller
             return abort('404');
         }
     }
+// Création d'un produit
+	public function postproduits(Request $donnees){
+
+		if(Auth::user()->role == 2){
+			$validatedData = $donnees->validate([
+				'name' => 'required|string|min:5|max:100',
+				'description' => 'required|string',
+				'image' => 'image|max:500'
+			]);
+
+            if($donnees->hasFile('image')){
+                $imagePath = time().'i.'.$donnees->image->getClientOriginalExtension();
+                $donnees->image->move(public_path('/assets/img/uploads/featured'), $imagePath);
+            }            
+			$produit = new Product();
+			$produit->name_product = $donnees['name'];
+			$produit->slug_product = str_slug($donnees['name'],'-');
+			$produit->description = $donnees['description'];
+			$produit->price_product = $donnees['prix'];
+			$produit->statut_product = 0;
+			$produit->link_img = $imagePath;
+			$produit->save();
+			
+			$productid = $produit->id;
+			
+			return redirect()->back()->with('message', 'Produit '.$productid.' créé');
+			
+		}else{
+			return abort('404');
+		}
+	}
+
+    // formulaire ajout boutique
     public function ajoutboutique(){
         if(Auth::user()->role !=0){        
 

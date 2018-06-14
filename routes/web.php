@@ -65,6 +65,7 @@ Route::prefix('gestion')->group(function(){
 	Route::get('/boutique/{idb}/profil/validmodif', 'gestionController@userValidModifBoutique')->middleware('auth')->name('userValidModifBoutique');
 	Route::get('/boutique/{idb}/produits', 'gestionController@produitsboutique')->middleware('auth')->name('produitsboutique');
 	Route::get('/boutique/{idb}/produits/ajout', 'gestionController@ajoutproduits')->middleware('auth')->name('ajoutproduits');
+	Route::post('/boutique/{idb}/produits/post', 'gestionController@postproduits')->middleware('auth')->name('postproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/modif', 'gestionController@modifproduits')->middleware('auth')->name('modifproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/valid', 'gestionController@validModifproduits')->middleware('auth')->name('validodifproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/suppr', 'gestionController@supprproduits')->middleware('auth')->name('supprproduits');
@@ -110,11 +111,11 @@ Route::get('/inscription', 'inscriptionController@inscription')->middleware('aut
 
 
 //Route mentions-légales
-Route::get('/mentions-legales', 'footerController@m-l')->middleware('auth')->name('m-l');
+Route::get('/mentions_legales', 'footerController@m_l')->middleware('auth')->name('m_l');
 
 
 //Route vie privée
-Route::get('/vie-privee', 'footerController@vie-privee')->middleware('auth')->name('vie-privee');
+Route::get('/vie_privee', 'footerController@vie_privee')->middleware('auth')->name('vie_privee');
 
 
 //Route CGVD

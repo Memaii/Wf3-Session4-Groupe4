@@ -94,6 +94,8 @@ Route::prefix('utilisateur')->group(function(){
 	Route::get('/modif', 'utilisateurController@modif')->middleware('auth')->name('Modif');
 	Route::get('/validationmodif', 'utilisateurController@validationModif')->middleware('auth')->name('validModif');
 	Route::get('/creationboutique', 'utilisateurController@creationBoutique')->middleware('auth')->name('creationBoutique');
+	Route::get('/resetPassword', 'utilisateurController@resetPassword')->middleware('auth')->name('resetPassword');
+	Route::post('/postPassword', 'utilisateurController@postPassword')->middleware('auth')->name('postPassword');
 	Route::get('/desinscription', 'utilisateurController@desinscription')->middleware('auth')->name('Desinscription');
 	Route::get('/validationdesinscription', 'utilisateurController@validationdesinscription')->middleware('auth')->name('ValidDesincription');
 	Route::get('/ajoutCommande', 'utilisateurController@ajoutCommande')->middleware('auth')->name('ajoutCommande');
@@ -102,7 +104,7 @@ Route::prefix('utilisateur')->group(function(){
 });
 
 
-//Route connexion
+
 Route::get('/connexion', 'connecController@connexion')->middleware('auth')->name('Connexion');
 
 

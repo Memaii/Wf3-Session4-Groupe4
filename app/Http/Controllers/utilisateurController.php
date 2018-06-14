@@ -17,7 +17,7 @@ class utilisateurController extends Controller
 
 		}elseif (Auth::user()->role != 0) {
 			$infosUser = Users::where('id', Auth::user()->id)->first();
-			$infosShop = Shops::where('id_user', Auth::user()->id)->first();
+			$infosShop = Shops::where('user_id', Auth::user()->id)->first();
 			return view('utilisateur', ['infosUser' => $infosUser, 'infosShop' => $infosShop]);
 
 		}else{

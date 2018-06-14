@@ -20,7 +20,7 @@
 					<label class="form-label" for="oldPass">Ancien mot de passe</label>
 				</div>
 				<div class="text-center">
-					<input type="text" name="oldPass" required>
+					<input type="password" name="oldPass" required>
 				</div>
 
 				{{-- nouveau mot de passe --}}
@@ -28,7 +28,7 @@
 					<label class="form-label" for="newPass">Nouveau mot de passe</label>
 				</div>
 				<div class="text-center">
-					<input type="text" name="newPass" required>
+					<input type="password" name="newPass" required>
 				</div>
 
 				{{-- nouveau mot de passe bis --}}
@@ -36,7 +36,7 @@
 					<label class="form-label" for="newPassBis">Nouveau mot de passe bis</label>
 				</div>
 				<div class="text-center">
-					<input type="text" name="newPassBis" required>
+					<input type="password" name="newPassBis" required>
 				</div>
 
 				{{-- boutton de validation --}}

@@ -12,14 +12,10 @@ use App\productModel as Products;
 class boutiqueController extends Controller
 {
 	public function boutiques(){
-		// ici on récupère les données de la première boutique de la liste pour centrer la carte
-		$firstShop = Shops::where('statut_shop',2)->orderby('name_shop')->first();
-		// ici on récupère les données des boutiques pour la liste
-		$shops = Shops::where('statut_shop',2)->orderby('name_shop')->paginate(8);
-		// ici on récupère les données des boutiques pour la carte
-		$allShops = Shops::where('statut_shop',2)->get();
+		// ici on récupère les données des boutiques
+		$shops = Shops::where('statut_shop',2)->orderby('name_shop')->paginate(9);
 
-	return view('boutiques', ['firstShop' => $firstShop,'shops' => $shops,'allShops' => $allShops]);
+	return view('boutiques', ['shops' => $shops,]);
 	}
 
 	public function boutique($id){

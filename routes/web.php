@@ -50,8 +50,8 @@ Route::prefix('admin')->group(function(){
 
 
 //Routes boutique
-Route::get('/boutiques', 'boutiqueController@boutiques')->middleware('auth')->name('boutiques');
-Route::get('/boutique/{id}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
+Route::get('/boutiques', 'boutiqueController@boutiques')->name('boutiques');
+Route::get('/boutique/{id}', 'boutiqueController@boutique')->name('boutique');
 Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm');
 
 
@@ -73,7 +73,7 @@ Route::prefix('gestion')->group(function(){
 
 
 //Routes catégorie
-Route::get('/categorie/{slug}', 'categorieController@categorie')->middleware('auth')->name('categorie');
+Route::get('/categorie/{slug}', 'categorieController@categorie')->name('categorie');
 
 
 //Routes panier
@@ -82,8 +82,8 @@ Route::get('/panier', 'panierController@panier')->middleware('auth')->name('pani
 
 //Routes produits
 Route::prefix('produits')->group(function(){
-	Route::get('/', 'produitsController@produits')->middleware('auth')->name('produits');
-	Route::get('/{slug}', 'produitsController@produit')->middleware('auth')->name('produit');
+	Route::get('/', 'produitsController@produits')->name('produits');
+	Route::get('/{slug}', 'produitsController@produit')->name('produit');
 	Route::get('/ajoutCommentaires', 'produitsController@ajoutCommentaires')->middleware('auth')->name('ajoutComm');
 });
 
@@ -111,15 +111,15 @@ Route::get('/inscription', 'inscriptionController@inscription')->middleware('aut
 
 
 //Route mentions-légales
-Route::get('/mentions_legales', 'footerController@m_l')->middleware('auth')->name('m_l');
+Route::get('/mentions_legales', 'footerController@m_l')->('m_l');
 
 
 //Route vie privée
-Route::get('/vie_privee', 'footerController@vie_privee')->middleware('auth')->name('vie_privee');
+Route::get('/vie_privee', 'footerController@vie_privee')->('vie_privee');
 
 
 //Route CGVD
-Route::get('/cgdv', 'footerController@cgdv')->middleware('auth')->name('cgdv');
+Route::get('/cgdv', 'footerController@cgdv')->name('cgdv');
 
 
 Auth::routes();

@@ -8,19 +8,22 @@ use Auth;
 use App\shopModel as Shops;
 use App\productModel as Product;
 use App\link_productModel as LinkProduct;
+use App\categoryModel as Cat;
+use App\sub_categoryModel as Sub_cat;
 
 class gestionController extends Controller
 {
-    public function ajoutproduits(){
+    public function ajoutproduits($idb){
         if(Auth::user()->role == 2){        
-
-    	   return view('gestion.ajoutarticle');
+        	$cat = Cat::get();
+        	$sub_cat = Sub_cat::get();
+	   		return view('gestion.ajoutarticle', ['idb' => $idb, 'cats' => $cat, 'sub_cats' => $sub_cat]);
         }else{
             return abort('404');
         }
     }
 // Création d'un produit
-	public function postproduits(Request $donnees){
+	public function postproduits(Request $donnees, $idb){
 
 		if(Auth::user()->role == 2){
 			$validatedData = $donnees->validate([
@@ -39,10 +42,18 @@ class gestionController extends Controller
 			$produit->description = $donnees['description'];
 			$produit->price_product = $donnees['prix'];
 			$produit->statut_product = 0;
-			$produit->link_img = $imagePath;
+			$produit->shop_id_shop = $idb;
+			$produit->sub_category_id_sub_category = $donnees['subcat'];
+			$produit->stock_product = $donnees['stock'];
 			$produit->save();
-			
+
 			$productid = $produit->id;
+
+			$link = new LinkProduct();
+			$link->product_id = $productid;
+			$link->link_img_product = $imagePath;
+			$link->save();
+
 			
 			return redirect()->back()->with('message', 'Produit '.$productid.' créé');
 			
@@ -51,6 +62,20 @@ class gestionController extends Controller
 		}
 	}
 
+    // Gestion boutique
+    public function gestionboutique($id){
+        if(Auth::user()->role ==2){        
+    	$shop = Shops::where('user_id', Auth::user()->id)->first();
+
+    	// ici on récupère les produits de la boutique
+    	$products = Product::where('shop_id_shop', $shop->id_shop)->paginate(9);
+
+    return view('gestion.gestion', ['shop' => $shop, 'products' => $products]);
+    	   return view('gestion.gestion');
+        }else{
+            return abort('404');
+        }
+    }
     // formulaire ajout boutique
     public function ajoutboutique(){
         if(Auth::user()->role !=0){        

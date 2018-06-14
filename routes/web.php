@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::get('/', 'indexController@accueil')->name('accueil');
 // ne pas toucher
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
@@ -30,9 +28,9 @@ Route::prefix('admin')->group(function(){
 	Route::get('/boutiques/{idb}/profil', 'adminController@adminprofilboutique')->middleware('auth')->name('adminprofilboutique');
 	Route::get('/boutiques/{idb}/bannir', 'adminController@bannirBoutique')->middleware('auth')->name('bannirBoutique');
 	Route::get('/boutiques/{idb}/debannir', 'adminController@debannirBoutique')->middleware('auth')->name('debannirBoutique');
-	Route::get('/boutiques/{idb}/profil/modif', 'adminController@modifboutique')->middleware('auth')->name('modifboutique');
+	Route::get('/boutiques/{idb}/profil/modif', 'adminController@adminModifBoutique')->middleware('auth')->name('adminModifBoutique');
+	Route::post('/boutiques/{idb}/profil/validmodif', 'adminController@adminValidModifBoutique')->middleware('auth')->name('adminValidModifBoutique');
 	Route::get('/boutiques/{idb}/suppr', 'adminController@supprboutique')->middleware('auth')->name('supprboutique');
-	Route::get('/boutiques/{idb}/profil/validmodif', 'adminController@validmodifboutique')->middleware('auth')->name('validmodifboutique');
 	Route::get('/boutiques/{idb}/produits', 'adminController@produitsboutique')->middleware('auth')->name('prodboutique');
 	Route::get('/boutiques/{idb}/produits/{idp}/modification', 'adminController@produitsmodif')->middleware('auth')->name('prodmodif');
 	Route::get('/boutiques/{idb}/produits/{idp}/validmodification', 'adminController@validmodif')->middleware('auth')->name('validModif');
@@ -42,7 +40,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/utilisateurs', 'adminController@adminUtilisateurs')->middleware('auth')->name('adminUtilisateurs');
 	Route::get('/utilisateur/{id}', 'adminController@adminUtilisateur')->middleware('auth')->name('adminUtilisateur');
 	Route::get('/utilisateur/{id}/modif', 'adminController@adminModifUtilisateur')->middleware('auth')->name('adminModifUtilisateur');
-	Route::get('/utilisateur/{id}/validModif', 'adminController@adminValidModifUtilisateur')->middleware('auth')->name('adminValidModifUtilisateur');
+	Route::post('/utilisateur/{id}/validModif', 'adminController@adminValidModifUtilisateur')->middleware('auth')->name('adminValidModifUtilisateur');
 	Route::get('/utilisateur/{id}/suppresion', 'adminController@adminSuppresionUtilisateur')->middleware('auth')->name('adminSuppresionUtilisateur');
 	Route::get('/utilisateur/{id}/validDesinscription', 'adminController@validDesinscriptionUtilisateur')->middleware('auth')->name('validDesinscriptionUtilisateur');
 
@@ -53,17 +51,20 @@ Route::prefix('admin')->group(function(){
 
 //Routes boutique
 Route::get('/boutiques', 'boutiqueController@boutiques')->middleware('auth')->name('boutiques');
-Route::get('/boutique/{id}', 'boutiqueController@boutique')->middleware('auth')->name('boutique');
+Route::get('/boutique/{id}', 'boutiqueController@boutique')->name('boutique');
 Route::get('/boutique/ajoutCommentaire', 'boutiqueController@boutiquecomm')->middleware('auth')->name('boutiquecomm');
 
 
 //Routes gestion
 Route::prefix('gestion')->group(function(){
+	Route::get('/boutique/ajout', 'gestionController@ajoutboutique')->middleware('auth')->name('ajoutboutique');
+	Route::post('/boutique/post', 'gestionController@postboutique')->middleware('auth')->name('postboutique');	
 	Route::get('/boutique/{idb}', 'gestionController@gestionboutique')->middleware('auth')->name('gestboutique');
 	Route::get('/boutique/{idb}/profil', 'gestionController@profilboutique')->middleware('auth')->name('profilboutique');
-	Route::get('/boutique/{idb}/profil/modif', 'gestionController@modifboutique')->middleware('auth')->name('modifboutique');
-	Route::get('/boutique/{idb}/profil/validmodif', 'gestionController@validmodifboutique')->middleware('auth')->name('validmodifboutique');
+	Route::get('/boutique/{idb}/profil/modif', 'gestionController@userModifBoutique')->middleware('auth')->name('userModifBoutique');
+	Route::get('/boutique/{idb}/profil/validmodif', 'gestionController@userValidModifBoutique')->middleware('auth')->name('userValidModifBoutique');
 	Route::get('/boutique/{idb}/produits', 'gestionController@produitsboutique')->middleware('auth')->name('produitsboutique');
+	Route::get('/boutique/{idb}/produits/ajout', 'gestionController@ajoutproduits')->middleware('auth')->name('ajoutproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/modif', 'gestionController@modifproduits')->middleware('auth')->name('modifproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/valid', 'gestionController@validModifproduits')->middleware('auth')->name('validodifproduits');
 	Route::get('/boutique/{idb}/produits/{idp}/suppr', 'gestionController@supprproduits')->middleware('auth')->name('supprproduits');
@@ -92,6 +93,8 @@ Route::prefix('utilisateur')->group(function(){
 	Route::get('/modif', 'utilisateurController@modif')->middleware('auth')->name('Modif');
 	Route::get('/validationmodif', 'utilisateurController@validationModif')->middleware('auth')->name('validModif');
 	Route::get('/creationboutique', 'utilisateurController@creationBoutique')->middleware('auth')->name('creationBoutique');
+	Route::get('/resetPassword', 'utilisateurController@resetPassword')->middleware('auth')->name('resetPassword');
+	Route::post('/postPassword', 'utilisateurController@postPassword')->middleware('auth')->name('postPassword');
 	Route::get('/desinscription', 'utilisateurController@desinscription')->middleware('auth')->name('Desinscription');
 	Route::get('/validationdesinscription', 'utilisateurController@validationdesinscription')->middleware('auth')->name('ValidDesincription');
 	Route::get('/ajoutCommande', 'utilisateurController@ajoutCommande')->middleware('auth')->name('ajoutCommande');
@@ -109,11 +112,11 @@ Route::get('/inscription', 'inscriptionController@inscription')->middleware('aut
 
 
 //Route mentions-légales
-Route::get('/mentions-legales', 'footerController@m-l')->middleware('auth')->name('m-l');
+Route::get('/mentions_legales', 'footerController@m_l')->middleware('auth')->name('m_l');
 
 
 //Route vie privée
-Route::get('/vie-privee', 'footerController@vie-privee')->middleware('auth')->name('vie-privee');
+Route::get('/vie_privee', 'footerController@vie_privee')->middleware('auth')->name('vie_privee');
 
 
 //Route CGVD

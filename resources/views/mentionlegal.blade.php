@@ -21,8 +21,8 @@
 				
 
 				Natural-net est une EURL au capital de 3500€
-				RCS B - Siret :  - APE : 
-				N° déclaration CNIL : 
+				RCS B - Siret :xxxxxxxxxxxxxx  - APE : 
+				N° déclaration CNIL : xxxxxxxxxxx
 			</p>
 		</div>
 		<div class="col-12">
@@ -34,7 +34,7 @@
 		<div class="col-12">
 			 <h2>Responsable éditorial</h2>
 
-				<p>Jumutu
+				<p>HTEV
 				Site Internet Qualité
 				par HTEV
 				4 Rue Paul Doumer
@@ -68,7 +68,7 @@
 		</div>
 		<div class="col-12">
 			<h2>Droit d'accès</h2>
-					<p> En application de cette loi, les internautes disposent d’un droit d’accès, de rectification, de modification et de suppression concernant les données qui les concernent personnellement. Ce droit peut être exercé par voie postale auprès de Natural-net 49 Boulevard Antoine Gautier 33000 Bordeaux ou par voie électronique à l’adresse email suivante : contact@natural-net.fr.
+					<p> En application de cette loi, les internautes disposent d’un droit d’accès, de rectification, de modification et de suppression concernant les données qui les concernent personnellement. Ce droit peut être exercé par voie postale auprès de HTEV 4 Rue Paul Doumer 89000 Auxerre ou par voie électronique à l’adresse email suivante : boutique@sas.fr
 					Les informations personnelles collectées ne sont en aucun cas confiées à des tiers hormis pour l’éventuelle bonne exécution de la prestation commandée par l’internaute. </p>
 		</div>
 
@@ -87,23 +87,23 @@
 
 					Les utilisateurs et visiteurs du site internet peuvent mettre en place un hyperlien en direction de ce site, mais uniquement en direction de la page d’accueil, accessible à l’URL suivante : www.site-internet-qualite.fr, à condition que ce lien s’ouvre dans une nouvelle fenêtre. En particulier un lien vers une sous page (« lien profond ») est interdit, ainsi que l’ouverture du présent site au sein d’un cadre (« framing »), sauf l'autorisation expresse et préalable de Natural-net.
 
-					Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : contact@natural-net.fr. Des conditions spécifiques sont prévues pour la presse.
+					Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : boutique@sas.fr Des conditions spécifiques sont prévues pour la presse.
 
 					Par ailleurs, la mise en forme de ce site a nécessité le recours à des sources externes dont nous avons acquis les droits ou dont les droits d'utilisation sont ouverts : Pioneer - Multi-Purpose HTML 5 / CSS 3 Corporate Template.   
 
 
-					Créé le : 24/05/2016
-					Auteur : Dankov
-					E-mail de l'auteur : dankov.theme@gmail.com
+					Créé le : 24/05/2018
+					Auteur : HTEV
+					E-mail de l'auteur : boutique@sas.fr
 					</p>
 		</div>
 		<div class="col-12">
 
 			<h2>Hébergeur</h2>
-				<p>Kiubi
+				<p>HTEV
 					Plateforme de gestion et création de sites internet
-					www.kiubi.com
-					contact@kiubi.com</p>
+					boutique@sas.fr
+					</p>
 		</div>
 
 		<div class="col-12">
@@ -152,7 +152,7 @@
 		<div class="col-12">
 
 			<h2>Contactez-nous</h2>
-				<p>Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez nous écrire en français par courrier électronique à : contact@natural-net.fr.</p>
+				<p>Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez nous écrire en français par courrier électronique à : boutique@sas.fr</p>
 		</div>
 
 		</div>

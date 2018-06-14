@@ -8,7 +8,7 @@ class footerController extends Controller
 {
 	// Affiche la page des mentions légales
 	public function m_l(){
-		return view('mentionlegal');
+		return view('m_l');
 	}
 
 	// Affiche la page de la vie privée

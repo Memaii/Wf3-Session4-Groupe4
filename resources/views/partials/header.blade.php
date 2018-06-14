@@ -31,8 +31,8 @@
 		      <li class="nav-item{{ (route::currentRouteName() == 'accueil') ? ' active': ''}}">
 		        <a class="nav-link" href="{{URL::to('/')}}">Accueil <span class="sr-only">(current)</span></a>
 		      </li>
-		      <li class="nav-item{{ (route::currentRouteName() == 'boutiquess') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Boutiques</a>
+		      <li class="nav-item{{ (route::currentRouteName() == 'boutiques') ? ' active': ''}}">
+		        <a class="nav-link" href="{{ route('boutiques') }}">Boutiques</a>
 		      </li>
 		      <li class="nav-item{{ (route::currentRouteName() == 'produits') ? ' active': ''}}">
 		        <a class="nav-link" href="#">Produits</a>

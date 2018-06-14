@@ -111,11 +111,11 @@ Route::get('/inscription', 'inscriptionController@inscription')->middleware('aut
 
 
 //Route mentions-légales
-Route::get('/mentions_legales', 'footerController@m_l')->('m_l');
+Route::get('/mentions_legales', 'footerController@m_l')->name('m_l');
 
 
 //Route vie privée
-Route::get('/vie_privee', 'footerController@vie_privee')->('vie_privee');
+Route::get('/vie_privee', 'footerController@vie_privee')->name('vie_privee');
 
 
 //Route CGVD

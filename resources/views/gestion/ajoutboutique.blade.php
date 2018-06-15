@@ -8,7 +8,7 @@
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyC8E8NfMUkrVa-21RDfyaRnvZMLodBWRNM" type="text/javascript"></script>
 
 
-<script type="text/javascript" src="{{ asset('assets/js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/map.js') }}"></script>
 
 <main class="container">
     <section class="row">
@@ -145,8 +145,8 @@
                         @endif                        
                     </div>
                     <div>
-                        <input id="lat" type="text" name="lat" value="{{ old('lat') }}">
-                        <input id="lon" type="text" name="lon" value="{{ old('lon') }}">
+                        <input id="lat" type="text" style="display: none;" name="lat" value="{{ old('lat') }}">
+                        <input id="lon" type="text" style="display: none;"" name="lon" value="{{ old('lon') }}">
                     </div>
                 </div>
 

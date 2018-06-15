@@ -6,6 +6,9 @@
 
 <script type="text/javascript" src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyC8E8NfMUkrVa-21RDfyaRnvZMLodBWRNM" type="text/javascript"></script>
+
+<script type="text/javascript" src="{{ asset('assets/js/map.js') }}"></script>
+
 <main class="container">
     <section class="row">
         <h1 class="col-12 py-4">Gestion de la boutique</h1>
@@ -23,7 +26,7 @@
     			<input type="hidden" name="edit" value="true">
     			<input type="hidden" name="idshop" value="{{ $shop->id_shop}}">
     			<div class="row">
-    				<div class="col-6">
+    				<div class="col-12 col-lg-6 ">
     					<label class="form-label" for="name">Nom</label>
     					<input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : ''}}" name="name" id="name" value="{{ $shop->name_shop}}" required>
     					@if($errors->has('name'))
@@ -45,11 +48,8 @@
     					</span>
     					@endif
 
-
-
-
     				</div>
-    				<div class="col-6">
+    				<div class="col-12 col-lg-6 ">
     					<div class="row">
     						{{-- Siret de la boutique --}}
     						<div class="col-2 text-right">
@@ -145,18 +145,18 @@
     							@endif                        
     						</div>
     						<div >
-    							<input id="lat" style="display: none;" type="text" name="lat" value="{{ $shop->lat_shop }}">
-    							<input id="lon" style="display: none;" type="text" name="lon" value="{{ $shop->lon_shop }}">
+    							<input id="lat" style="display: none;" type="text" name="lat" value="{{ old('lat') }}">
+    							<input id="lon" style="display: none" type="text" name="lon" value="{{ old('lon') }}">
     						</div>
     					</div>
     				</div>
     				<br>
 
     				<!-- logo et image--> 
-    				<div class="col-12">
-    					<div class="row">                
+    				<div class="col-12 mt-3">
+           
     						<div class="form-group row justify-content-center">
-    							<div class="col-2">
+    							<div class="col-4 col-lg-2">
     								<p>Logo</p>
 
     								<!-- affichage du logo -->
@@ -165,56 +165,52 @@
     								<input type="hidden" name="oldlogo" value="{{ $shop->link_logo }}">
     								@endif
     							</div>                    	
-    							<div class="col-4">
+    							<div class="col-8 col-lg-4">
     								<p>Pour remplacer le logo:</p>	
     								<label for="logo">Choisir un fichier</label>
-    								<input type="file" name="logo" class="form-control{{ $errors->has('logo')? ' is-invalid' : '' }}" value="{{old('logo')}}">
+    								<input type="file" name="logo" class="smallText form-control{{ $errors->has('logo')? ' is-invalid' : '' }}" value="{{old('logo')}}">
     								@if ($errors->has('logo'))
     								<span class="invalid-feedback">
     									<strong>{{ $errors->first('logo') }}</strong>
     								</span>
     								@endif
     							</div>
-    							<div class="col-2">
+    							<div class="col-4 col-lg-2">
     								<p>Image</p>
     								@if($shop->link_img != '')
     								<img class="card-img-top w-100" src="{{ asset('assets/img/uploads/featured') }}/{{ $shop->link_img }}">
     								<input type="hidden" name="oldimg" value="{{ $shop->link_img }}">
     								@endif
     							</div>
-    							<div class="col-4">
+    							<div class="col-8 col-lg-4">
     								<p>Pour remplacer l'image:</p>		
     								<label for="image">Choisir un fichier</label>
-    								<input type="file" name="image" class="form-control{{ $errors->has('image')? ' is-invalid' : '' }}" value="{{old('image')}}">
+    								<input type="file" name="image" class="smallText form-control{{ $errors->has('image')? ' is-invalid' : '' }}" value="{{old('image')}}">
     								@if ($errors->has('image'))
     								<span class="invalid-feedback">
     									<strong>{{ $errors->first('image') }}</strong>
     								</span>
     								@endif
     							</div>
-    							<div class="col-2">
+    							<div class="col-2 mt-3">
     								<button type="submit" class="btn btn-primary">Modifier</button>	
     							</div>
     						</div>
-    					</div>
     				</div>
-
     			</form>
     		</div>
-
-
-
     	</div>
-
 
     </section>
     <section class="row">
     	<!-- affichage liste des produits-> -->
-    	<h3 class="col-8 bg-white">Liste des produits</h3>
-    	<div class="col-4">
+
+    	<div class="col-12 mt-3 bg-white text-center">
+    		<h3 >Liste des produits   
     		<a class="btn btn-success btn-sm" href="{{ route('ajoutproduits', $shop->id_shop) }}"> Ajouter un produit</a>
+    		</h3>
     	</div>
-    	<div class="col-12">
+    	<div class="col-12 ">
     		<table>
     			<thead>
     				<tr>
@@ -233,7 +229,7 @@
     					<td class="px-2">{{ $product->start_sale_product }}</td>    
 
     					<td>
-    						<a class="btn btn-success btn-sm" href="#"> Modifier</a>
+    						<a class="btn btn-primary btn-sm" href="#"> Modifier</a>
     					</td>
     				</tr>
     				@endforeach

@@ -46,11 +46,10 @@
 <main class="container">
 	<div class="row">
 		<section class="col-6">
-			<div class="card-deck">
-                <div class="card-columns">
-
+            <div class="row">
             {{-- affichage des boutiques --}}
                 @foreach($shops as $shop)
+                <div class="col-6 mt-4">
                     <div class="card p-2">
                      {{-- affichage de l'image --}}
                         <a href="{{route('boutique',['id' => $shop->id_shop])}}">
@@ -65,14 +64,14 @@
                             <p>note: {{ $shop->note }}</p>
                         </div>
                     </div>
+                </div>
                 @endforeach
-
             </div>
 		</section>
-		<aside class="col-6">
+        <aside class="col-6">
             <h5>Carte</h5>
             <div id="carte"></div>
-		</aside>
+        </aside>
 	</div>
 </main>
 

@@ -35,7 +35,7 @@
 		        <a class="nav-link" href="{{ route('boutiques') }}">Boutiques</a>
 		      </li>
 		      <li class="nav-item{{ (route::currentRouteName() == 'produits') ? ' active': ''}}">
-		        <a class="nav-link" href="#">Produits</a>
+		        <a class="nav-link" href="{{ route('produits') }}">Produits</a>
 		      </li>
 		      <li class="nav-item{{ (route::currentRouteName() == 'panier') ? ' active': ''}}">
 		        <a class="nav-link" href="#">Panier</a>
